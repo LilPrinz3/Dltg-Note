@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(255, 237, 216);
+}
+form{
+    width: 50%;
+    border: thin solid black;
+    margin: 70px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px 2px gray;
+}
+h2{
+    text-align: center;
+    padding-bottom: .5em;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-bottom: .5em;
+}
+.inp{
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.sign{
+    text-align: center;
+    padding-bottom: .5em;
+}
+.sign-btn{
+    background-color: blue;
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 7px;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.acct{
+    text-align: center;
+    padding-top: 1em;
+}
+.login-btn{
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 7px 24px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.logs{
+    width: 50%;
+    border: thin solid black;
+    margin: 70px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px 2px gray;
+}
+#log-in{
+    display: none;
+}
+.cont{
+    text-align: center;
+    padding-bottom: .5em;
+}
+.user {
+    position: relative;
+    width: 100%;
+}
+.user .password {
+    width: 100%;
+    padding-right: 35px; /* space for eye icon */
+}
+.user .passwordField {
+    width: 100%;
+    padding-right: 35px; /* space for eye icon */
+}
+.user i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: gray;
+    font-size: 1em;
+}
+.ins{
+    font-size: smaller;
+    display: block;
+    margin-top: -5px;
+}
+
+/* media query */
+@media(max-width: 885px){
+    form{
+    width: 70%;
+    border: thin solid black;
+    margin: 70px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px 2px gray;
+}
+.logs{
+    width: 70%;
+    border: thin solid black;
+    margin: 70px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px 2px gray;
+}
+}
+@media(max-width: 546px){
+    form{
+    width: 80%;
+    border: thin solid black;
+    margin: 70px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px 2px gray;
+}
+.logs{
+    width: 80%;
+    border: thin solid black;
+    margin: 70px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px 2px gray;
+}
+}

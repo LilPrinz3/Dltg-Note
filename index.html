@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- signup form -->
+    <form action="" id="sign-up">
+        <h2>Sign up</h2>
+        <div class="inputs">
+            <input type="text" name="" class="inp" id="inp1" placeholder="first name">
+            <input type="text" name="" class="inp" id="inp2" placeholder="Last name">
+            <input type="email" placeholder="Email-address" id="inp3" class="inp">
+            <div class="user">
+                <input type="password" placeholder="Password" id="inp4" class="inp password">
+                <i class="fa-regular fa-eye togglePassword" data-target="inp4"></i>
+            </div> 
+            <div class="user">
+                <input type="password" placeholder="Confirm Password" id="inp5" class="inp password">
+                <i class="fa-regular fa-eye togglePassword" data-target="inp5"></i>
+            </div>
+        </div>
+        <p class="sign"><input type="checkbox" name="" id="check-box">I agree with privacy and policy</p>
+        <p id="show-error"></p>
+        <button type="submit" class="sign-btn" id="signupBtn">Sign up</button>
+        <p class="acct">Already have an account? <button type="button" class="login-btn" id="show-login">Login</button></p>
+        <h4 id="signup-error-message" style="color: red"></h4>
+    </form>
+
+    <!-- login form -->
+    <form action="" id="log-in" class="logs">
+        <h2>Log In</h2>
+        <p class="cont">Please log-in to continue</p>
+        <div class="inputs">
+            <input type="email" placeholder="Email-address" id="email-space" class="inp">
+            <div class="user">
+                <input type="password" placeholder="Password" id="password-space" class="inp passwordField">
+                <i class="fa-regular fa-eye" id="togglePassword"></i>
+            </div>
+        </div>
+        <button type="submit" class="sign-btn" id="loginBtn">log in</button>
+        <p class="acct">Don't have an account? <button class="login-btn" id="show-signup">SignUp</button></p>
+        <h4 id="login-error-message" style="color: red"></h4>
+    </form>
+</body>
+<script type="module" src="./signup.js"></script>
+<script type="module" src="./login.js"></script>
+</html>

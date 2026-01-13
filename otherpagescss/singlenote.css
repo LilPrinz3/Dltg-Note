@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    background-color: #f5f7fb;
+}
+/* ===== CENTER CONTAINER ===== */
+.single-note-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    /* padding: 30px 16px; */
+}
+.single-note-wrapper .note {
+    width: 380px;
+}
+/* =====================================================
+   NOTE CARD — EXACT SAME AS GRID
+   ===================================================== */
+
+.note {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    font-size: 1.2em;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 
+        0 4px 6px rgba(0,0,0,0.1),
+        0 8px 12px rgba(0,0,0,0.08),
+        0 12px 18px rgba(0,0,0,0.06);
+
+    transform: rotate(-0.3deg);
+}
+
+/* ===== TITLE ===== */
+.note h4 {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #111;
+    text-align: left;
+}
+
+/* =====================================================
+   CONTENT — EXPANDED VERSION (NO CLAMP)
+   ===================================================== */
+
+.note-content {
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.6;
+    flex-grow: 1;
+
+    /* remove clamp behavior */
+    display: block;
+    overflow: visible;
+
+    text-align: left;
+}
+
+/* ===== DATE (BOTTOM RIGHT — SAME AS GRID) ===== */
+.note .date {
+    font-size: 0.75em;
+    color: black;
+    text-align: right;
+    margin-top: 12px;
+}
+
+.ful{
+    text-align: center;
+    padding-top: 1.3em;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1.3em;
+    gap: 1em;
+}
+.crt {
+    background-color: aquamarine;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: 
+        background-color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.crt:focus-visible { outline: 3px solid rgba(34,197,94,0.35); outline-offset: 2px; }
+.crt:hover {
+    background-color: #6ee7b7; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.crt:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================================
+   ENTRY ANIMATION
+   ===================================================== */
+
+.note-enter {
+    animation: noteExpand 0.35s ease forwards;
+}
+
+@keyframes noteExpand {
+    from {
+        transform: scale(0.96) translateY(12px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== FADE-IN CONTENT ===== */
+.fade-item {
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.fade-item:nth-child(1) { animation-delay: 0.1s; }
+.fade-item:nth-child(2) { animation-delay: 0.2s; }
+.fade-item:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================================
+   RESPONSIVE ADJUSTMENTS
+   ===================================================== */
+@media (max-width: 428px) {
+    .single-note-wrapper .note {
+    width: 340px;
+}
+.note{
+    font-size: 1.1em;
+}
+}
+@media (max-width: 375px) {
+    .single-note-wrapper .note {
+    width: 300px;
+}  
+}

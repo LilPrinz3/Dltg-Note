@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note</title>
+    <link rel="stylesheet" href="../otherpagescss/note.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <h2 class="text">All notes</h2>
+        <div class="right-side">
+            <div class="sear">
+                <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>  
+                <input type="text" placeholder="Search note..." id="searchNote" class="inp">
+                <i class="fa-solid fa-x" id="searchClose"></i>
+            </div>
+            <button class="crt"><a href="../otherpageshtml/createnote.html">Create note</a></button>
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="hamburger-header">
+                <button class="close-btn" id="closeBtn">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+            </div>
+            <div class="hamburger-content">
+                <div class="sear-mobile">
+                    <i class="fa-solid fa-magnifying-glass" id="searchIconMobile"></i>  
+                    <input type="text" placeholder="Search note..." id="searchNoteMobile" class="inp-mobile">
+                    <i class="fa-solid fa-x" id="searchCloseMobile"></i>
+                </div>
+                <button class="crt-mobile"><a href="../otherpageshtml/createnote.html">Create note</a></button>
+                <button class="logout-mobile" id="logoutMobile">Logout</button>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <h3 id="userStatus"></h3>
+    </nav>
+    <button id="logoutbtn">Logout</button>
+    <div id="page">
+        <div id="noResults" class="no-results"></div>
+        <div class="notes-container" id="display"></div>
+   </div>
+   <div class="date">
+        <!-- Created: ${createdDate}<br>
+        ${updatedDate ? `Edited: ${updatedDate}` : ""} -->
+   </div>
+</body>
+<script type="module" src="../otherpagesjs/note.js"></script>
+</html>

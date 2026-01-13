@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create note</title>
+    <link rel="stylesheet" href="../otherpagescss/createnote.css">
+</head>
+<body>
+    <form action="" id="note-form">
+        <h1 class="wor">Create new Note</h1>
+        <div class="inps">
+            <input type="text" name="" id="title" placeholder="Title" class="inp" required>
+            <textarea name="" id="content" class="inp" placeholder="Content" rows="10" cols="50" required></textarea>
+        </div>
+        <div id="noteCount">
+            Words: 0 | Characters: 0
+        </div>
+        <button type="submit" id="createNoteBtn" class="crn">Create Note</button>
+        <h4 class="opt">OR</h4>
+        <button class="crn"><a href="../otherpageshtml/note.html">View existing notes</a></button>
+    </form>
+</body>
+<script type="module" src="../otherpagesjs/createnote.js"></script>
+</html>
