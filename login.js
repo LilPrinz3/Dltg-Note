@@ -47,23 +47,10 @@ function validateLoginForm(){
         return;
     }
 
-    // ====== localStorage validation =======
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    let matchedUser = users.find(user => user.email.toLowerCase() === emailSpace.toLowerCase() && user.password === passwordSpace);
-    // if (matchedUser) {
-    //     // alert(`Welcome, ${matchedUser.firstName}!`);
-    //     window.location.href = "../some works in JS/multitable.html"
-    // }
-    if (!matchedUser) {
-    loginError.textContent = "Invalid email or password";
-    return ;
-    }
-    
     return {
-    email: emailSpace ,
-    password: passwordSpace,
-    user: matchedUser, // synced user
-  };
+        email: emailSpace,
+        password: passwordSpace
+    };
 }
 
 // =================== FIREBASE SETUP ===================
@@ -74,6 +61,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebas
         onAuthStateChanged,
     } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
+    import {
+      getFirestore,
+      collection,
+      query,
+      where,
+      getDocs,
+} from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js"
     // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyC3U4MJVx1Bd-bHRymdY4ufC0gqNAcss-o",
@@ -87,6 +81,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebas
   // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
+      const db = getFirestore(app);
+      const usersCollection = collection(db, "users");
 
 // =================== LOGIN FUNCTION ===================
 async function firebaseLogin(userData) {
@@ -98,15 +94,20 @@ async function firebaseLogin(userData) {
 
 
     try {
-          await signInWithEmailAndPassword(auth, userData.email, userData.password);
+          const cred = await signInWithEmailAndPassword(auth, userData.email, userData.password);
 
-          // store current logged-in user
-        //     localStorage.setItem(
-        //     "currentUser",
-        //    JSON.stringify(userData.user)
-        //     );
+            // fetch profile & cache locally
+    const q = query(usersCollection, where("uid", "==", cred.user.uid));
+    const snap = await getDocs(q);
+
+    if (!snap.empty) {
+      localStorage.setItem(
+        "userProfile",
+        JSON.stringify(snap.docs[0].data())
+      );
+    }
           alert("Login successful");
-          window.location.href = "./otherpageshtml/createnote.html";
+          // window.location.href = "./otherpageshtml/createnote.html";
         } catch (error) {
           console.error("Error logging in:", error);
           document.getElementById('login-error-message').innerHTML = error.message;
@@ -120,6 +121,8 @@ async function firebaseLogin(userData) {
         onAuthStateChanged(auth, (user) => {
         if (user) {
           window.location.href = "./otherpageshtml/createnote.html";
+        } else {
+          localStorage.removeItem("userProfile");
         }
       });
 

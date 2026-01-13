@@ -102,16 +102,6 @@ function validateSignupForm(){
         return;
     }
     
-    let userObj = {
-        firstName: first,
-        lastName: last,
-        email : mail,
-        password : pass,
-        };
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    users.push(userObj);
-    localStorage.setItem('users', JSON.stringify(users));
-
    return {
     firstName: first,
     lastName: last,
