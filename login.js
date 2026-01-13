@@ -109,13 +109,22 @@ async function firebaseLogin(userData) {
           alert("Login successful");
           // window.location.href = "./otherpageshtml/createnote.html";
         } catch (error) {
-          console.error("Error logging in:", error);
-          document.getElementById('login-error-message').innerHTML = error.message;
-          alert("Login failed");
-        } finally {
-          loginBtn.disabled = false;
-          loginBtn.innerText = "Login";
-        };
+  console.error("Error logging in:", error);
+
+  // Friendly error message for users
+  let message = "Invalid email or password";
+
+  // Optional: handle disabled user separately
+  if (error.code === "auth/user-disabled") {
+    message = "This account has been disabled. Please contact support.";
+  }
+
+  document.getElementById('login-error-message').textContent = message;
+} finally {
+  loginBtn.disabled = false;
+  loginBtn.innerText = "Login";
+}
+
 }
 
         onAuthStateChanged(auth, (user) => {
